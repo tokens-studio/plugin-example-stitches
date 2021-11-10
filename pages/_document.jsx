@@ -1,11 +1,16 @@
 import React from 'react'
 import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
+import { styled } from '../stitches.config'
 import { getCssText } from '../stitches.config'
 
+const StyledHtml = styled(Html, {
+  background: '$theme-bg-default',
+  color: '$theme-fg-default',
+})
 export default class Document extends NextDocument {
   render() {
     return (
-      <Html lang="en">
+      <StyledHtml lang="en">
         <Head>
           <style
             id="stitches"
@@ -16,7 +21,7 @@ export default class Document extends NextDocument {
           <Main />
           <NextScript />
         </body>
-      </Html>
+      </StyledHtml>
     )
   }
 }

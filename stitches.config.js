@@ -1,4 +1,6 @@
 import { createStitches } from '@stitches/react'
+const tokens = require("./output/light.json")
+const darkTokens = require("./output/dark.json")
 
 export const {
   config,
@@ -10,24 +12,7 @@ export const {
   theme,
 } = createStitches({
   theme: {
-    colors: {
-      hiContrast: 'hsl(206,10%,5%)',
-      loContrast: 'white',
-
-      gray100: 'hsl(206,22%,99%)',
-      gray200: 'hsl(206,12%,97%)',
-      gray300: 'hsl(206,11%,92%)',
-      gray400: 'hsl(206,10%,84%)',
-      gray500: 'hsl(206,10%,76%)',
-      gray600: 'hsl(206,10%,44%)',
-
-      purple100: 'hsl(252,100%,99%)',
-      purple200: 'hsl(252,100%,98%)',
-      purple300: 'hsl(252,100%,94%)',
-      purple400: 'hsl(252,75%,84%)',
-      purple500: 'hsl(252,78%,60%)',
-      purple600: 'hsl(252,80%,53%)',
-    },
+    colors: tokens.color,
     space: {
       1: '5px',
       2: '10px',
@@ -74,8 +59,10 @@ export const {
       paddingBottom: value,
     }),
   },
-  media: {
-    bp1: '(min-width: 520px)',
-    bp2: '(min-width: 900px)',
-  },
 })
+
+export const darkTheme = createTheme('dark-theme', {
+  theme: {
+    colors: darkTokens.color
+  }
+});

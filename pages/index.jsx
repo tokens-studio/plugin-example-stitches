@@ -1,53 +1,36 @@
 import Head from 'next/head'
 import { styled } from '../stitches.config'
 import StitchesLogo from '../components/StitchesLogo'
+import { ThemeToggle } from '../components/ThemeToggle'
 
 const Box = styled('div', {})
 
 const Text = styled('p', {
   fontFamily: '$system',
-  color: '$hiContrast',
+  color: '$theme-fg-default',
 })
 
 const Link = styled('a', {
   fontFamily: '$system',
   textDecoration: 'none',
-  color: '$purple600',
-})
-
-const Container = styled('div', {
-  marginX: 'auto',
-  paddingX: '$3',
-
-  variants: {
-    size: {
-      1: {
-        maxWidth: '300px',
-      },
-      2: {
-        maxWidth: '585px',
-      },
-      3: {
-        maxWidth: '865px',
-      },
-    },
-  },
+  color: '$theme-fg-muted',
 })
 
 export default function Home() {
   return (
-    <Box css={{ paddingY: '$6' }}>
+    <Box css={{ display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', margin: 'auto', maxWidth: '600px', paddingY: '$6', background: '$theme-bg-subtle' }}>
       <Head>
         <title>Use Stitches with Next.js</title>
       </Head>
-      <Container size={{ '@initial': '1', '@bp1': '2' }}>
+      <div>
         <StitchesLogo />
         <Text as="h1">Hello, from Stitches.</Text>
         <Text>
           For full documentation, visit{' '}
           <Link href="https://stitches.dev">stitches.dev</Link>.
         </Text>
-      </Container>
+        <ThemeToggle />
+      </div>
     </Box>
   )
 }
