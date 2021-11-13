@@ -1,27 +1,7 @@
-# Stitches Example
+# figma-tokens-example-stitches
 
-This example shows how to use the [Stitches CSS-in-JS Library](https://github.com/modulz/stitches).
+This example illustrates how you can transform your tokens stored on Figma Tokens (with GitHub sync enabled) to be automatically transformed with token-transformer and Style Dictionary to a Stitches environment with multiple themes. The theme switcher itself just adds `light-theme` or `dark-theme` to the root class, so in theory you could have not only light or dark theme but many different themes.
 
-## Preview
+Change your tokens in `tokens.json` (either directly or with the Figma Tokens plugin in Figma). The GitHub action will automatically generate tokens to the `tokens/` directory that can then be read by Style Dictionary, which will output tokens to the format you defined in `build.js` - css variables will be generated in the `output` directory which Stitches will pick up.
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-stitches)
-
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-stitches&project-name=with-stitches&repository-name=with-stitches)
-
-## How to use
-
-Execute [Create Next App](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-stitches with-stitches-app
-# or
-yarn create next-app --example with-stitches with-stitches-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+Note: Ideally generated css/dist files wouldn't be part of the repository but rather live in the build environment. I only included them here for showcase.
